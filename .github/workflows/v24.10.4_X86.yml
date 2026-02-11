@@ -8,15 +8,15 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: V24.10.4 X86
+name: V24.10.5 X86
 
 on:
   workflow_dispatch:
 
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
-  REPO_BRANCH: v24.10.4
-  FEEDS_CONF: v24feeds.conf.default
+  REPO_BRANCH: v24.10.5
+  FEEDS_CONF: v25feeds.conf.default
   CONFIG_FILE: X86.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part3.sh
@@ -133,7 +133,7 @@ jobs:
       uses: actions/upload-artifact@main
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       with:
-        name: X86_v24.10.4${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+        name: X86_v24.10.5${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
       
 
