@@ -10,7 +10,7 @@
 # See /LICENSE for more information.
 #
 
-name: Docker X86
+name: Docker X86-25.12
 
 on:
   workflow_dispatch:
