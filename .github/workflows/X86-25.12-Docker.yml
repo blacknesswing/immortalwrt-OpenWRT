@@ -123,7 +123,7 @@ jobs:
         BRANCH=${REPO_BRANCH}
         for file in *.img.gz; do
           [ -e "$file" ] || continue
-          NEW="ImmortalWrt_24.10.5_X86_docker_${BRANCH}_${DATE}_${file}"
+          NEW="ImmortalWrt_25.12_X86_docker_${BRANCH}_${DATE}_${file}"
           mv "$file" "$NEW"
         done
         rm -rf packages
