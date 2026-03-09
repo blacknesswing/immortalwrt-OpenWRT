@@ -122,10 +122,13 @@ jobs:
         DATE=$(date +"%Y%m%d")
         BRANCH=${REPO_BRANCH}
         for file in *.img.gz; do
-          [ -e "$file" ] && mv "$file" "ImmortalWrt_24.10.5_X86_docker_${BRANCH}_${DATE}.img.gz"
+          [ -e "$file" ] || continue
+          NEW="ImmortalWrt_24.10.5_X86_docker_${BRANCH}_${DATE}_${file}"
+          mv "$file" "$NEW"
         done
         rm -rf packages
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
+
 
     - name: 上传固件
       uses: actions/upload-artifact@v4
