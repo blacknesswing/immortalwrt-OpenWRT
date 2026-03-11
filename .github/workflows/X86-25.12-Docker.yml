@@ -132,7 +132,7 @@ jobs:
           [ -f "$file" ] || continue
           EXT="${file##*.}"             
           NAME="${file%.*}"             
-          NEW="ImmortalWrt_${NAME}_${DATE}.${EXT}"
+          NEW="25.12_docker_${NAME}_${DATE}.${EXT}"
           mv -f "$file" "$NEW"
         done
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
@@ -143,7 +143,7 @@ jobs:
       uses: actions/upload-artifact@main
       if: success()
       with:
-        name: ImmortalWrt_24.10.5_X86_docker_${{ env.FILE_DATE }}
+        name: ImmortalWrt_25.12_X86_docker_${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
 
     - name: 清理运行日志
