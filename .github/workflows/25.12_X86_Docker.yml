@@ -10,7 +10,7 @@
 # See /LICENSE for more information.
 #
 
-name: Docker X86-25.12
+name: OpenWrt 25.12 X86 Docker
 
 on:
   workflow_dispatch:
