@@ -8,15 +8,15 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: OpenWrt 24.10 R2s
+name: OpenWrt v25.12.0 R2s
 
 on:
   workflow_dispatch:
 
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
-  REPO_BRANCH: openwrt-24.10
-  FEEDS_CONF: 2410feeds.conf.default
+  REPO_BRANCH: v25.12.0
+  FEEDS_CONF: V25120feeds.conf.default
   CONFIG_FILE: R2s.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
@@ -133,7 +133,7 @@ jobs:
           [ -f "$file" ] || continue
           EXT="${file##*.}"             
           NAME="${file%.*}"             
-          NEW="24.10_${DATE}_${NAME}.${EXT}"
+          NEW="v25.12.0_${DATE}_${NAME}.${EXT}"
           mv -f "$file" "$NEW"
         done
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
@@ -143,7 +143,7 @@ jobs:
       uses: actions/upload-artifact@main
       if: success()
       with:
-        name: immortalwrt_24.10_R2s_${{ env.FILE_DATE }}
+        name: immortalwrt_v25.12.0_R2s_${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
 
     - name: 清理运行日志
